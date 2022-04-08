@@ -1,7 +1,7 @@
 package tudor.ryan.domain.weather.services;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,6 +16,9 @@ public class WeatherServiceImpl implements WeatherService {
 
     private RestTemplate restTemplate;
 
+    @Value("${weather.api.key}")
+    private String apiKey;
+
 
     public WeatherServiceImpl(){
         restTemplate = new RestTemplate();
@@ -24,8 +27,7 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     public Optional<WeatherAPIResponse> requestDataFromApi(String lat, String lon) {
         try{
-            String apiKey = "8c48b50c248adf8fa8c08ba06b74e4e1";
-            String url = "https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&appid=%s&units=imperial";
+            String url = "https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&appid=%s";
             String requestUrl = String.format(url,lat,lon,apiKey);
             ResponseEntity<WeatherAPIResponse> response = restTemplate.exchange(requestUrl, HttpMethod.GET,null,WeatherAPIResponse.class);
             WeatherAPIResponse apiResponse = response.getBody();

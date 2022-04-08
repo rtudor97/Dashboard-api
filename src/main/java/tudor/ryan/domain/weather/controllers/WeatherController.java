@@ -26,9 +26,10 @@ public class WeatherController {
     }
 
     @GetMapping("")
-    public ResponseEntity<WeatherAPIResponse> requestWeather(@RequestParam(name = "lon",required = false) String lon, @RequestParam(name = "lat",required = false) String lat){
+    public ResponseEntity<WeatherAPIResponse> requestWeather(@RequestParam(name = "lon",required = false) String lon,
+                                                             @RequestParam(name = "lat",required = false) String lat){
         Optional<WeatherAPIResponse> response = weatherService.requestDataFromApi(lat,lon);
-        log.info(response.get().toString());
+        log.info(response.toString());
         return new ResponseEntity(response, HttpStatus.OK);
     }
 }

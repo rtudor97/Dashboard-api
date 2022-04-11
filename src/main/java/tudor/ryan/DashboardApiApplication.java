@@ -13,23 +13,23 @@ import java.util.Optional;
 
 @SpringBootApplication
 @Slf4j
-public class DashboardApiApplication implements CommandLineRunner{
+public class DashboardApiApplication{
 
 	public static void main(String[] args) {
 		SpringApplication.run(DashboardApiApplication.class, args);
 	}
 
-	@Autowired
-	private WeatherService weatherService;
-
-	@Override
-	public void run(String... args) throws Exception {
-		Optional<WeatherAPIResponse> response = weatherService.requestDataFromApi("39.7447","-75.5484");
-		if(response.isEmpty()){
-			log.info("No Bueno");
-			return;
-		}
-		WeatherAPIResponse data = response.get();
-		log.info(data.toString());
-	}
+//	@Autowired
+//	private WeatherService weatherService;
+//
+//	@Override
+//	public void run(String... args) throws Exception {
+//		Optional<WeatherAPIResponse> response = weatherService.requestDataFromApi("39.7447","-75.5484");
+//		if(response.isEmpty()){
+//			log.info("No Bueno");
+//			return;
+//		}
+//		WeatherAPIResponse data = response.get();
+//		log.info(data.toString());
+//	}
 }

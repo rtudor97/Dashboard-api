@@ -56,4 +56,16 @@ public class WeatherMain {
     public void setHumidity(Integer humidity) {
         this.humidity = humidity;
     }
+
+    @Override
+    public String toString() {
+        return "WeatherMain{" +
+                "temp=" + temp +
+                ", feels_like=" + feels_like +
+                ", temp_min=" + temp_min +
+                ", temp_max=" + temp_max +
+                ", pressure=" + pressure +
+                ", humidity=" + humidity +
+                '}';
+    }
 }

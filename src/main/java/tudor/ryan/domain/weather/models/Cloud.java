@@ -11,4 +11,11 @@ public class Cloud {
     public void setAll(Integer all) {
         this.all = all;
     }
+
+    @Override
+    public String toString() {
+        return "Cloud{" +
+                "all=" + all +
+                '}';
+    }
 }

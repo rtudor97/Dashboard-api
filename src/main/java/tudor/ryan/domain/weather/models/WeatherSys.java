@@ -55,4 +55,16 @@ public class WeatherSys {
     public void setSunset(Long sunset) {
         this.sunset = sunset;
     }
+
+    @Override
+    public String toString() {
+        return "WeatherSys{" +
+                "type=" + type +
+                ", id=" + id +
+                ", message=" + message +
+                ", country='" + country + '\'' +
+                ", sunrise=" + sunrise +
+                ", sunset=" + sunset +
+                '}';
+    }
 }

@@ -21,9 +21,6 @@ public class WeatherAPIResponse {
     private String name;
     private Integer cod;
 
-    public WeatherAPIResponse() {
-    }
-
     public Coordinate getCoordinate() {
         return coordinate;
     }

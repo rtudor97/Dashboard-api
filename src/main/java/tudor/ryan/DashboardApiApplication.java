@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @SpringBootApplication
 @Slf4j
-public class DashboardApiApplication implements CommandLineRunner {
+public class DashboardApiApplication implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(DashboardApiApplication.class, args);

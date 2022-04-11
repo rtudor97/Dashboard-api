@@ -1,6 +1,5 @@
 package tudor.ryan.domain.weather.controllers;
 
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +12,10 @@ import tudor.ryan.domain.weather.services.WeatherService;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin("http://localhost:3000/")
 @RequestMapping("/weather")
-@Slf4j
+@CrossOrigin("http://localhost:3000")
 public class WeatherController {
+    private static Logger logger = LoggerFactory.getLogger(WeatherController.class);
 
     private WeatherService weatherService;
 
@@ -27,9 +26,9 @@ public class WeatherController {
 
     @GetMapping("")
     public ResponseEntity<WeatherAPIResponse> requestWeather(@RequestParam(name = "lon",required = false) String lon,
-                                                             @RequestParam(name = "lat",required = false) String lat){
+                                                                @RequestParam(name = "lat",required = false) String lat){
         Optional<WeatherAPIResponse> response = weatherService.requestDataFromApi(lat,lon);
-        log.info(response.toString());
+        logger.info(response.toString());
         return new ResponseEntity(response, HttpStatus.OK);
     }
 }

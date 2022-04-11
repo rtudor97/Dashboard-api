@@ -1,6 +1,8 @@
 package tudor.ryan.domain.weather.services;
 
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +13,8 @@ import tudor.ryan.domain.weather.models.WeatherAPIResponse;
 
 import java.util.Optional;
 @Service
-@Slf4j
 public class WeatherServiceImpl implements WeatherService {
+    private Logger logger = LoggerFactory.getLogger(WeatherServiceImpl.class);
 
     private RestTemplate restTemplate;
 
@@ -33,7 +35,7 @@ public class WeatherServiceImpl implements WeatherService {
             WeatherAPIResponse apiResponse = response.getBody();
             return Optional.of(apiResponse);
         }catch (HttpClientErrorException ex){
-            log.error(ex.getMessage());
+            logger.error(ex.getMessage());
             return Optional.empty();
         }
     }

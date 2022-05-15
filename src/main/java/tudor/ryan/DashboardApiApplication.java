@@ -24,7 +24,7 @@ public class DashboardApiApplication{
 //
 //	@Override
 //	public void run(String... args) throws Exception {
-//		Optional<WeatherAPIResponse> response = weatherService.requestDataFromApi("39.7447","-75.5484");
+//		Optional<WeatherAPIResponse> response = weatherService.requestDataFromApi("39.8156","-75.5057");
 //		if(response.isEmpty()){
 //			log.info("No Bueno");
 //			return;

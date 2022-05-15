@@ -1,5 +1,6 @@
 package tudor.ryan.domain.weather.services;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,7 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     public Optional<WeatherAPIResponse> requestDataFromApi(String lat, String lon) {
         try{
-            String url = "https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&appid=%s";
+            String url = "https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&appid=%s&units=imperial";
             String requestUrl = String.format(url,lat,lon,apiKey);
             ResponseEntity<WeatherAPIResponse> response = restTemplate.exchange(requestUrl, HttpMethod.GET,null,WeatherAPIResponse.class);
             WeatherAPIResponse apiResponse = response.getBody();

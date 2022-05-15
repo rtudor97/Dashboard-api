@@ -1,13 +1,12 @@
 package tudor.ryan.domain.gas.models;
 
 public class Gas {
-    String currency;
-    String name;
-    String gasoline;
-    String midGrade;
-    String premium;
-    String diesel;
-
+    private String currency;
+    private String name;
+    private String gasoline;
+    private String midGrade;
+    private String premium;
+    private String diesel;
 
     public Gas() {
     }
